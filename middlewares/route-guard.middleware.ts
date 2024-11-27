@@ -9,6 +9,7 @@ const isAuthenticated = (req: CustomRequest, res: Response, next: NextFunction) 
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || authHeader.split(" ")[0] !== "Bearer") {
+      console.log(authHeader)
       throw new Error("Token headers do not match expected headers");
     }
     const token = authHeader.split(" ")[1];

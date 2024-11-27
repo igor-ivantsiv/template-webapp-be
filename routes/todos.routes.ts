@@ -6,11 +6,12 @@ const todosRoutes = Router();
 
 // Get all todos
 
-todosRoutes.get("/",
+todosRoutes.get("/:userId",
     async (req: Request, res: Response, next) => {
         console.log(req.body)
+        const userId = req.params.userId
         try {
-            const todosData = await Todo.find()
+            const todosData = await Todo.find({userId: userId})
             res.json(todosData);
         } catch (error) {
             next(error);

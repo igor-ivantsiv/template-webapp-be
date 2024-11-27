@@ -8,6 +8,6 @@ indexRoutes.get("/", (req: Request, res: Response) => {
     res.json("All good in here");
   });
 
-  indexRoutes.use("/todos", /*isAuthenticated,*/ todosRoutes);
+  indexRoutes.use("/todos", isAuthenticated, todosRoutes);
 
 export default indexRoutes
